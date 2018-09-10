@@ -1,0 +1,117 @@
+body {
+    background-image: url(desk.jpg);
+    background-size: cover;
+
+    font-family: 'Raleway', sans-serif;
+    color: white;
+}
+
+.nav {
+    display: flex;
+    align-items: flex-end;
+    background-color: rgba(0, 0, 0, .5);
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    transition: all 0.6s ease-out;
+}
+
+.nav.scrolled {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.nav-link {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    transition: all 0.6s ease-out;
+    font-size: 1.2em
+}
+
+.nav-link.scrolled {
+    font-size: 1em
+}
+
+#logo {
+    font-size: 1.5em;
+}
+
+#logo.scrolled {
+    font-size: 1.3em;
+}
+
+.container {
+    /* width: 700px;
+    height: 600px; */
+    display: flex;
+    flex-direction: column;
+    margin-left: 35px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+/* Trying to fix the tiled background image */
+.body_text {
+    /* width: 700px; */
+    width: 68%;
+}
+
+.company_directory {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+
+.profile {
+    display: grid;
+    /* width: 1200px; */
+    width: 97%;
+    grid-template-columns: 25% 65% 10%;
+    grid-template-rows: auto;
+    padding-top: 30px;
+}
+
+.employee_text {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, .6);
+    padding-left: 10px;
+}
+
+p {
+    padding-top: 80px;
+    font-size: 18pt;
+    text-indent: 1.5em;
+    line-height: 1.6em;
+}
+
+.searchBar {
+    padding-top: 150px;
+}
+
+.searchBar input {
+    width: 60%;
+    height: 2.5em;
+    font-size: 1.1em;
+}
+
+.submit {
+    padding-top: 10px;
+}
+
+/* .submit input{
+    width: 120px;
+    height: 40px;
+    background-color: #2F2FC9;
+    color: white;
+} */
+
+.mailChimpButton {
+    padding-top: 15px;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+}
