@@ -22,6 +22,7 @@ def web_scraper(event, context):
     website_text = []
     for i in range(len(website_raw_text)):
         website_text.append(website_raw_text[i].getText())
+        print(website_text[i])
 
 
     response = {
