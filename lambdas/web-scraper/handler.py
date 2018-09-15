@@ -23,7 +23,12 @@ def web_scraper(event, context):
     website_text = []
     for i in range(len(website_raw_text)):
         website_text.append(website_raw_text[i].getText())
-#        print(website_text[i])
+    
+    # Concatinate all pieces of text in website_text into a single string
+    # This will be used for the Long Audio File
+    full_text = ''
+    for i in website_text:
+        full_text += i
 
     # Amazon Polly API Call
     polly = boto3.client("polly")
@@ -41,9 +46,14 @@ def web_scraper(event, context):
             audio_file.write(stream.read())
     
     # Testing to see if a Long Audio File would be better
-    
-
-    # TO-DO: Upload mp3 to S3 bucket
+    bucket_name = event['bucket_name']
+    long_audio = polly.start_speech_synthesis_task(
+        OutputFormat = 'mp3',
+        OutputS3BucketName = bucket_name,
+        VoiceId = "Joanna",
+        Text = full_text,
+        TextType = 'text'
+    )
     
 
     response = {
