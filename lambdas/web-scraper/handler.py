@@ -5,10 +5,6 @@ import boto3
 from contextlib import closing
 
 def web_scraper(event, context):
-    body = {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "input": event
-    }
     
     # Grab the url from the event json and grab the source file using requests
     url = event['url_search']
@@ -40,7 +36,6 @@ def web_scraper(event, context):
     )
     
     # Send mp3 to audio file    
-    print(audio_response)
     with closing(audio_response['AudioStream']) as stream:
         with open('audio_file.mp3', 'wb') as audio_file:
             audio_file.write(stream.read())
@@ -54,11 +49,5 @@ def web_scraper(event, context):
         Text = full_text,
         TextType = 'text'
     )
-    
 
-    response = {
-        "statusCode": 200,
-        "body": json.dumps(body)
-    }
-
-    return response
+    return event
