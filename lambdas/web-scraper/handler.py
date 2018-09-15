@@ -28,16 +28,23 @@ def web_scraper(event, context):
     # Amazon Polly API Call
     polly = boto3.client("polly")
     audio_response = polly.synthesize_speech(
-        Text = "The cake is a lie. The cake is a Lie. Hello Dave, I can't let you do that Dave.",
+        Text = "The cake is a lie. I'm sorry Dave, I'm afraid I can't do that.",
         TextType = "text",
         OutputFormat = "mp3",
         VoiceId="Joanna"
     )
     
+    # Send mp3 to audio file    
     print(audio_response)
     with closing(audio_response['AudioStream']) as stream:
         with open('audio_file.mp3', 'wb') as audio_file:
             audio_file.write(stream.read())
+    
+    # Testing to see if a Long Audio File would be better
+    
+
+    # TO-DO: Upload mp3 to S3 bucket
+    
 
     response = {
         "statusCode": 200,
