@@ -15,7 +15,7 @@ def web_scraper(event, context):
     # website_raw_text = website_full_text.select('p')
     website_raw_text = website_full_text.find_all(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
 
-    # Take the list of <p> tags and get the nested text as strings
+    # Take the list of paragraphs and headers and get the nested text as strings
     website_text = []
     for i in range(len(website_raw_text)):
         website_text.append(website_raw_text[i].getText())
@@ -27,18 +27,18 @@ def web_scraper(event, context):
         full_text += i
 
     # Amazon Polly API Call
-    polly = boto3.client("polly")
-    audio_response = polly.synthesize_speech(
-        Text = "The cake is a lie. I'm sorry Dave, I'm afraid I can't do that.",
-        TextType = "text",
-        OutputFormat = "mp3",
-        VoiceId="Joanna"
-    )
+#    polly = boto3.client("polly")
+#    audio_response = polly.synthesize_speech(
+#        Text = "The cake is a lie. I'm sorry Dave, I'm afraid I can't do that.",
+#        TextType = "text",
+#        OutputFormat = "mp3",
+#        VoiceId="Joanna"
+#    )
     
     # Send mp3 to audio file    
-    with closing(audio_response['AudioStream']) as stream:
-        with open('audio_file.mp3', 'wb') as audio_file:
-            audio_file.write(stream.read())
+#    with closing(audio_response['AudioStream']) as stream:
+#        with open('audio_file.mp3', 'wb') as audio_file:
+#            audio_file.write(stream.read())
     
     # Testing to see if a Long Audio File would be better
     bucket_name = event['bucket_name']
