@@ -45,6 +45,7 @@ def createS3(event, context):
 
     response = {
         "statusCode": 200
+        "event" : event
     }
 
     return response
