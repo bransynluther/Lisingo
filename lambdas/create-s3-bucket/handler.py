@@ -45,10 +45,9 @@ def createS3(event, context):
 
     response = {
         "statusCode": 200
-        "event" : event
     }
 
-    return response
+    return event
 
     # Use this code if you don't use the http event with the LAMBDA-PROXY
     # integration
