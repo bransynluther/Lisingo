@@ -8,7 +8,7 @@ def createS3(event, context):
 
     s3 = boto3.client('s3')
     x = autogen()
-    email = event["email"]
+    email = event['email']
     email = email.split("@")
     bucket_name = email[0] + x
     s3.create_bucket(Bucket=bucket_name)
@@ -43,11 +43,8 @@ def createS3(event, context):
 
     event['bucket_name'] = bucket_name
 
-    response = {
-        "statusCode": 200
-    }
-
     return event
+
 
     # Use this code if you don't use the http event with the LAMBDA-PROXY
     # integration
