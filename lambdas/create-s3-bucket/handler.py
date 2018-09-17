@@ -8,7 +8,7 @@ def createS3(event, context):
 
     s3 = boto3.client('s3')
     x = autogen()
-    email = event['email']
+    email = event(['input']['email'])
     email = email.split("@")
     bucket_name = email[0] + x
     s3.create_bucket(Bucket=bucket_name)

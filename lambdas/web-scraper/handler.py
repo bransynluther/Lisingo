@@ -27,7 +27,7 @@ def web_scraper(event, context):
         full_text += i
 
     # Amazon Polly API Call
-#    polly = boto3.client("polly")
+    polly = boto3.client("polly")
 #    audio_response = polly.synthesize_speech(
 #        Text = "The cake is a lie. I'm sorry Dave, I'm afraid I can't do that.",
 #        TextType = "text",
