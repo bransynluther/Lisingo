@@ -1,7 +1,7 @@
 import json
 
 
-def sms-notifier(event, context):
+def sms_notifier(event, context):
     body = {
         "message": "Go Serverless v1.0! Your function executed successfully!",
         "input": event
