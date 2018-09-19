@@ -6,6 +6,9 @@ from contextlib import closing
 
 def web_scraper(event, context):
 
+    # For Debugging the state machine
+    print(event)
+
     # Grab the url from the event json and grab the source file using requests
     url = event['url_search']
     file_name = event['file_name']

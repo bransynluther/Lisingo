@@ -5,12 +5,17 @@ import random
 import string
 
 def createS3(event, context):
+    
+    # For Debugging the State machine
+    print(event)   
 
     s3 = boto3.client('s3')
     x = autogen()
-    email = event(['input']['email'])
+    email = event['email']
     email = email.split("@")
     bucket_name = email[0] + x
+    bucket_name = bucket_name.lower()
+    print(bucket_name)                  #DEBUG
     s3.create_bucket(Bucket=bucket_name)
 
     website_configuration = {
