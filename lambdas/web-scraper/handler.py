@@ -15,7 +15,7 @@ def web_scraper(event, context):
     response = requests.get(url)
 
     # convert the source html to a beautifulSoup object, select all <p> tags
-    website_full_text = bs4.BeautifulSoup(response.text, features="html5lib")
+    website_full_text = bs4.BeautifulSoup(response.text, features="lxml")
     # website_raw_text = website_full_text.select('p')
     website_raw_text = website_full_text.find_all(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
 
@@ -54,7 +54,7 @@ def web_scraper(event, context):
         Text = full_text,
         TextType = 'text'
     )
-    
+
     audio_response_uri = long_audio['SynthesisTask']['OutputUri']
     audio_split = audio_response_uri.split('.')
     audio_split.remove(audio_split[1])
