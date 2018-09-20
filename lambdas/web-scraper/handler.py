@@ -6,6 +6,9 @@ from contextlib import closing
 
 def web_scraper(event, context):
 
+    # For Debugging the state machine
+    print(event)
+
     # Grab the url from the event json and grab the source file using requests
     url = event['url_search']
     file_name = event['file_name']
@@ -51,5 +54,15 @@ def web_scraper(event, context):
         Text = full_text,
         TextType = 'text'
     )
+    
+    audio_response_uri = long_audio['SynthesisTask']['OutputUri']
+    audio_split = audio_response_uri.split('.')
+    audio_split.remove(audio_split[1])
+    audio_link = ""
+    for i in range(len(audio_split)):
+        audio_link += audio_split[i]
+        if i < len(audio_split)-1:
+            audio_link += '.'
 
+    event['audio_link'] = audio_link
     return event
