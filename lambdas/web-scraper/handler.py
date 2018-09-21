@@ -11,7 +11,7 @@ def web_scraper(event, context):
 
     # Grab the url from the event json and grab the source file using requests
     url = event['url_search']
-    file_name = event['file_name']
+#    file_name = event['file_name']
     response = requests.get(url)
 
     # convert the source html to a beautifulSoup object, select all <p> tags
@@ -49,7 +49,6 @@ def web_scraper(event, context):
     long_audio = polly.start_speech_synthesis_task(
         OutputFormat = 'mp3',
         OutputS3BucketName = bucket_name,
-        OutputS3KeyPrefix = file_name,
         VoiceId = "Joanna",
         Text = full_text,
         TextType = 'text'
