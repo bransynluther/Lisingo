@@ -14,8 +14,7 @@ def web_scraper(event, context):
     response = requests.get(url)
 
     # convert the source html to a beautifulSoup object, select all <p> tags
-    website_full_text = bs4.BeautifulSoup(response.text, features="html5lib")
-    # website_raw_text = website_full_text.select('p')
+    website_full_text = bs4.BeautifulSoup(response.text, features="html.parser")
     website_raw_text = website_full_text.find_all(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
 
     # Take the list of paragraphs and headers and get the nested text as strings
@@ -31,10 +30,8 @@ def web_scraper(event, context):
 
     # Amazon Polly API Call
     polly = boto3.client("polly")
-
-    # Testing to see if a Long Audio File would be better
     bucket_name = event['bucket_name']
-    voice = event['voiceId']
+#    voice = event['voiceId']
     long_audio = polly.start_speech_synthesis_task(
         OutputFormat = 'mp3',
         OutputS3BucketName = bucket_name,
