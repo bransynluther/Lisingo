@@ -11,12 +11,13 @@ provider:
 
 plugins:
   - serverless-python-requirements
+
 custom:
   pythonRequirements:
-    docerizePip: true
+    dockerizePip: non-linux
+    fileName: requirements.txt
 
-
-functions:
+  functions:
   web_scraper:
     handler: handler.web_scraper
 
