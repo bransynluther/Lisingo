@@ -5,8 +5,7 @@
   "dependencies": {
     "nodestream": "^0.7.4",
     "readable-stream": "^3.0.3",
-    "stream": "0.0.2",
-    "serverless-python-requirements": "^4.2.4"
+    "stream": "0.0.2"
   },
   "devDependencies": {
     "serverless-python-requirements": "^4.2.4"

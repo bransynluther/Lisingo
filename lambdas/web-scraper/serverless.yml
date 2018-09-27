@@ -17,7 +17,7 @@ custom:
     dockerizePip: non-linux
     fileName: requirements.txt
 
-  functions:
+functions:
   web_scraper:
     handler: handler.web_scraper
 
