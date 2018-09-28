@@ -20,6 +20,11 @@ service: web-scraper # NOTE: update this with your service name
 provider:
   name: aws
   runtime: python3.6
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - polly:*
+      Resource: "*"
 
 functions:
   web_scraper:
