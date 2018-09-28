@@ -1,7 +1,7 @@
-import json
 import requests
-import bs4
+import json
 import boto3
+import bs4
 from contextlib import closing
 
 def web_scraper(event, context):
@@ -11,7 +11,6 @@ def web_scraper(event, context):
 
     # Grab the url from the event json and grab the source file using requests
     url = event['url_search']
-    file_name = event['file_name']
     response = requests.get(url)
 
     # convert the source html to a beautifulSoup object, select all <p> tags
@@ -32,29 +31,16 @@ def web_scraper(event, context):
 
     # Amazon Polly API Call
     polly = boto3.client("polly")
-#    audio_response = polly.synthesize_speech(
-#        Text = "The cake is a lie. I'm sorry Dave, I'm afraid I can't do that.",
-#        TextType = "text",
-#        OutputFormat = "mp3",
-#        VoiceId="Joanna"
-#    )
-
-    # Send mp3 to audio file
-#    with closing(audio_response['AudioStream']) as stream:
-#        with open('audio_file.mp3', 'wb') as audio_file:
-#            audio_file.write(stream.read())
-
     # Testing to see if a Long Audio File would be better
     bucket_name = event['bucket_name']
     long_audio = polly.start_speech_synthesis_task(
         OutputFormat = 'mp3',
         OutputS3BucketName = bucket_name,
-        OutputS3KeyPrefix = file_name,
         VoiceId = "Joanna",
         Text = full_text,
         TextType = 'text'
     )
-    
+
     audio_response_uri = long_audio['SynthesisTask']['OutputUri']
     audio_split = audio_response_uri.split('.')
     audio_split.remove(audio_split[1])
@@ -66,3 +52,4 @@ def web_scraper(event, context):
 
     event['audio_link'] = audio_link
     return event
+
