@@ -5,9 +5,9 @@ import random
 import string
 
 def createS3(event, context):
-    
+
     # For Debugging the State machine
-    print(event)   
+    print(event)
 
     s3 = boto3.client('s3')
     x = autogen()
@@ -47,7 +47,6 @@ def createS3(event, context):
 
 
     event['bucket_name'] = bucket_name
-
     return event
 
 

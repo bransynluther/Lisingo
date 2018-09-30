@@ -102,3 +102,10 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+#
+package:
+  exclude:
+    - node_modules/**
+
+plugins:
+  - serverless-python-requirements
