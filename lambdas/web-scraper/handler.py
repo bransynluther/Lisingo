@@ -14,7 +14,7 @@ def web_scraper(event, context):
     response = requests.get(url)
 
     # convert the source html to a beautifulSoup object, select all <p> tags
-    website_full_text = bs4.BeautifulSoup(response.text, features="html5lib")
+    website_full_text = bs4.BeautifulSoup(response.text, features="html.parser")
     # website_raw_text = website_full_text.select('p')
     website_raw_text = website_full_text.find_all(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
 
@@ -49,7 +49,9 @@ def web_scraper(event, context):
         audio_link += audio_split[i]
         if i < len(audio_split)-1:
             audio_link += '.'
-
     event['audio_link'] = audio_link
+    s3 = boto3.resource("s3")
+    objectt = s3.Bucket(bucket_name)
+    objectt.Acl().put(ACL='public-read')
     return event
 
