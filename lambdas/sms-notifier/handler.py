@@ -1,5 +1,6 @@
 import json
 import smtplib
+import time
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -7,7 +8,8 @@ def sms_notifier(event, context):
 
     # for debugging the state machine
     print(event)
-    
+    time.sleep(10)
+
     destination_email = event['email']
     object_link = event['audio_link']
 
@@ -15,12 +17,12 @@ def sms_notifier(event, context):
     password = "lisingo1!"
     subject = "Your Lisingo MP3 is ready."
     message = f'''Your lisingo data is finished. Please click the link to download!
-    
+
     {object_link}
-    
+
     Thank you for using Lisingo!
     '''
-    
+
     # Start email server
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
