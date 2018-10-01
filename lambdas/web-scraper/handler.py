@@ -11,7 +11,12 @@ def web_scraper(event, context):
 
     # Grab the url from the event json and grab the source file using requests
     url = event['url_search']
-    response = requests.get(url)
+    check = url.find("https://")
+    if check == -1:
+        appended_url = "https://" + url
+        response = requests.get(appended_url)
+    else:
+        response = requests.get(url)
 
     # convert the source html to a beautifulSoup object, select all <p> tags
     website_full_text = bs4.BeautifulSoup(response.text, features="html.parser")
