@@ -38,10 +38,11 @@ def web_scraper(event, context):
     polly = boto3.client("polly")
     # Testing to see if a Long Audio File would be better
     bucket_name = event['bucket_name']
+    voice = event['voice']
     long_audio = polly.start_speech_synthesis_task(
         OutputFormat = 'mp3',
         OutputS3BucketName = bucket_name,
-        VoiceId = "Joanna",
+        VoiceId = voice,
         Text = full_text,
         TextType = 'text'
     )
