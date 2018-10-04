@@ -10,11 +10,8 @@ def createS3(event, context):
     print(event)
 
     s3 = boto3.client('s3')
-    x = autogen()
     email = event['email']
-    email = email.split("@")
-    bucket_name = email[0] + x
-    bucket_name = bucket_name.lower()
+    bucket_name = "lisingfiles"
     print(bucket_name)                  #DEBUG
     s3.create_bucket(Bucket=bucket_name)
 
@@ -58,9 +55,3 @@ def createS3(event, context):
         "event": event
     }
     """
-
-def autogen():
-    x = ''.join(random.choices(string.ascii_letters + string.digits, k=16))
-    x = x.lower()
-    return x
-
