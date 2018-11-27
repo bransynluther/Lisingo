@@ -24,7 +24,6 @@ def createS3(event, context):
         WebsiteConfiguration=website_configuration
     )
 
-
     bucket_policy = {
         'Version': '2012-10-17',
         'Statement': [{
