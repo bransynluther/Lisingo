@@ -14,7 +14,7 @@ def sms_notifier(event, context):
     object_link = event['audio_link']
 
     username = "lisingo.mailer@gmail.com"
-    password = "lisingo1!"
+    password = "p@sswordLisingo1!"
     subject = "Your Lisingo MP3 is ready."
     message = f'''Your lisingo data is finished. Please click the link to download!
 
