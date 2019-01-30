@@ -29,10 +29,10 @@
                 <h1>Lisingo</h1>
             </div>
             <div class="subContainer1">
-                <h3>The new name in text-to-voice streaming</h3>
+                <h2>The new name in text-to-voice streaming</h2>
             </div>
             <div class="searchBar">
-                <input type="search" placeholder="Search" name="searchUrl"> <br>
+                <input id="searchBar" type="search" placeholder="Search" name="searchUrl" data-toggle="modal"> <br>
             </div>
             <!-- <div class="submit">
                 <input type="button" class="btn btn-primary" value="Search">
@@ -50,13 +50,64 @@
                         <div id="mc_embed_signup_scroll">
                             <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                             <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_5e522d37e4d57f41be1f1aa77_eff4f2843a" tabindex="-1" value=""></div>
-                            <div class="clear"><input type="button" class="btn btn-primary" value="Search">  <input type="submit" class="btn btn-primary" value="Learn More" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                            <div class="clear"><input id="searchButton" type="button" class="btn btn-primary" value="Search" data-toggle="modal" data-target="#exampleModalCenter">  <input type="submit" class="btn btn-primary" value="Learn More" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
                         </div>
                     </form>
                 </div>
-
-                <!--End mc_embed_signup -->
             </div>
+            <!--End mc_embed_signup -->
+
+            <!-- Bootstrap Modal -->
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="exampleModalCenterTitle">User Information</h2>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="containter">
+                                <form id="search-form" method="post">
+                                    <div class="form_line">
+                                        <h4 id="form_url">
+                                        </h4>
+                                    </div>
+                                    <div class="form_line">
+                                        <h3>Email</h3>
+                                        <input id="email_input" name="email" value="" placeholder="email@domain.com" autocomplete="email" required type="text">
+                                    </div>
+                                    <!-- <div class="form_line">
+                                        <h3>Phone</h3>
+                                        <input id="phone-number" name="phone" type="tel" placeholder="(XXX) XXX-XXXX" autocomplete="tel" required>
+                                    </div> -->
+                                    <div class="form_line">
+                                        <h3>Voice Selection</h3>
+                                        <select id="voice" name="voice" style="height:30px;" required>
+                                            <option value="Ivy">Ivy</option>
+                                            <option value="Joanna" selected>Joanna</option>
+                                            <option value="Joey">Joey</option>
+                                            <option value="Justin">Justin</option>
+                                            <option value="Kendra">Kendra</option>
+                                            <option value="Kimberly">Kimberly</option>
+                                            <option value="Matthew">Matthew</option>
+                                            <option value="Salli">Salli</option>
+                                        </select>
+                                    </div>
+                                    <input id="url_search" type="text" name="url_search" hidden>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button id="submitButton" type="submit"  class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Bootstrap Modal -->
         </div>
 
 

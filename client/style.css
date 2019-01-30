@@ -1,5 +1,5 @@
 body {
-    background-image: url(desk.jpg);
+    background-image: url(images/desk.jpg);
     background-size: cover;
 
     font-family: 'Raleway', sans-serif;
@@ -23,12 +23,17 @@ body {
     color: white;
     font-family: 'Raleway', sans-serif;
     transition: all 0.6s ease-out;
-    font-size: 1.2em
+    font-size: 1.2em;
 }
 
 .nav-link.scrolled {
-    font-size: 1em
+    font-size: 1em;
 }
+
+.modal-content {
+    background-color: #3a4042;
+}
+
 
 #logo {
     font-size: 1.5em;
@@ -46,6 +51,14 @@ body {
     margin-left: 35px;
     margin-top: 80px;
     margin-bottom: 40px;
+}
+
+.form_line {
+    display: grid;
+    width: 97%;
+    grid-template-columns: 20%, 70%,;
+    grid-template-rows: auto;
+    padding-bottom: 10px;
 }
 
 /* Trying to fix the tiled background image */
@@ -77,6 +90,7 @@ body {
     flex-direction: column;
     background-color: rgba(0, 0, 0, .6);
     padding-left: 10px;
+    font-size: 1.2em;
 }
 
 p {
@@ -84,6 +98,10 @@ p {
     font-size: 18pt;
     text-indent: 1.5em;
     line-height: 1.6em;
+}
+
+h1 {
+    font-size: 4em;
 }
 
 .searchBar {
@@ -111,7 +129,21 @@ p {
     padding-top: 15px;
 }
 
-img {
+#architecture_diagram {
+    width: 95%;
+    margin-top: 2em;
+    margin-left: 2em;
+}
+
+.employee_image {
     width: 250px;
     height: 250px;
+}
+
+#form_url {
+    width: 470px;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    /* font-size: 3em; */
 }
